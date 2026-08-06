@@ -6,23 +6,16 @@ __pycache__/
 # Virtual Environment
 venv/
 .venv/
+env/
 
 # Environment Variables
 .env
 
-# Database
-db.sqlite3
-
-# Django
-*.log
-media/
-
 # VS Code
 .vscode/
 
-# PyCharm
-.idea/
-
-# OS files
+# macOS
 .DS_Store
+
+# Windows
 Thumbs.db
