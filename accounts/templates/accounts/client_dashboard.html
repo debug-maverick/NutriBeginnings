@@ -1,0 +1,54 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}Client Dashboard - Diet Plan{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card shadow">
+        <div class="card-header bg-info text-white">
+          <h3 class="mb-0"><i class="fas fa-user me-2"></i>Client Dashboard</h3>
+        </div>
+        <div class="card-body">
+          <h4>Welcome, {{ user.first_name|default:user.username }}!</h4>
+          <p class="text-muted">This is your personalized diet plan dashboard.</p>
+
+          <div class="row mt-4">
+            <div class="col-md-4 mb-3">
+              <div class="card bg-light">
+                <div class="card-body text-center">
+                  <i class="fas fa-utensils fa-3x text-primary mb-3"></i>
+                  <h5>My Diet Plans</h5>
+                  <p>View your current diet plan</p>
+                  <a href="#" class="btn btn-primary btn-sm">View Plans</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="card bg-light">
+                <div class="card-body text-center">
+                  <i class="fas fa-weight fa-3x text-success mb-3"></i>
+                  <h5>Track Progress</h5>
+                  <p>Monitor your health metrics</p>
+                  <a href="#" class="btn btn-success btn-sm">Track Now</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="card bg-light">
+                <div class="card-body text-center">
+                  <i class="fas fa-calendar-alt fa-3x text-warning mb-3"></i>
+                  <h5>Appointments</h5>
+                  <p>Schedule consultations</p>
+                  <a href="#" class="btn btn-warning btn-sm">Book Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

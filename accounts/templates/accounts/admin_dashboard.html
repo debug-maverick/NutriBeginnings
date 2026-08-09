@@ -1,0 +1,85 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}Admin Dashboard - Diet Plan{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card shadow">
+        <div class="card-header bg-danger text-white">
+          <h3 class="mb-0"><i class="fas fa-user-shield me-2"></i>Admin Dashboard</h3>
+        </div>
+        <div class="card-body">
+          <h4>Welcome, {{ user.first_name|default:user.username }}!</h4>
+          <p class="text-muted">Admin control panel for managing the diet plan website.</p>
+
+          <div class="row mt-4">
+            <!-- Admin Dashboard Buttons -->
+            <div class="col-md-4 mb-3">
+              <div class="card bg-light border-primary">
+                <div class="card-body text-center">
+                  <i class="fas fa-users fa-3x text-primary mb-3"></i>
+                  <h5>Manage Users</h5>
+                  <p>View and manage all users</p>
+                  <a href="#" class="btn btn-primary btn-sm">Manage Users</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="card bg-light border-success">
+                <div class="card-body text-center">
+                  <i class="fas fa-utensils fa-3x text-success mb-3"></i>
+                  <h5>Manage Diet Plans</h5>
+                  <p>Create and edit diet plans</p>
+                  <a href="#" class="btn btn-success btn-sm">Manage Plans</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="card bg-light border-warning">
+                <div class="card-body text-center">
+                  <i class="fas fa-chart-line fa-3x text-warning mb-3"></i>
+                  <h5>Analytics</h5>
+                  <p>View website analytics</p>
+                  <a href="#" class="btn btn-warning btn-sm">View Analytics</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="card bg-light border-info">
+                <div class="card-body text-center">
+                  <i class="fas fa-calendar-check fa-3x text-info mb-3"></i>
+                  <h5>Appointments</h5>
+                  <p>Manage appointments</p>
+                  <a href="#" class="btn btn-info btn-sm">View Appointments</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="card bg-light border-danger">
+                <div class="card-body text-center">
+                  <i class="fas fa-cog fa-3x text-danger mb-3"></i>
+                  <h5>Settings</h5>
+                  <p>Configure website settings</p>
+                  <a href="#" class="btn btn-danger btn-sm">Settings</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="card bg-light border-secondary">
+                <div class="card-body text-center">
+                  <i class="fas fa-file-alt fa-3x text-secondary mb-3"></i>
+                  <h5>Reports</h5>
+                  <p>Generate reports</p>
+                  <a href="#" class="btn btn-secondary btn-sm">View Reports</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
