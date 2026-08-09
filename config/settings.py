@@ -84,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'nutribeginnings',
         'USER': 'root',
-        'PASSWORD': 'root',
+        'PASSWORD': 'brocode',
         'HOST': 'localhost',
         'PORT': '3306',
     }
