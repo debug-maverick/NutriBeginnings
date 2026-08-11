@@ -1,19 +1,123 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
+
     <title>Register</title>
+
 </head>
 
 <body>
 
     <h1>Create Account</h1>
 
+
+    <!--
+        Display ALL form errors
+    -->
+
+    {% if form.errors %}
+
+    <div style="color: red;">
+
+        <h3>Please fix the following errors:</h3>
+
+        {{ form.errors }}
+
+    </div>
+
+    {% endif %}
+
+
     <form method="POST">
 
         {% csrf_token %}
 
-        {{ form.as_p }}
+
+        <!-- USERNAME -->
+
+        <p>
+
+            <label for="id_username">
+                Username:
+            </label>
+
+            {{ form.username }}
+
+            {% if form.username.errors %}
+
+            <span style="color: red;">
+                {{ form.username.errors }}
+            </span>
+
+            {% endif %}
+
+        </p>
+
+
+        <!-- EMAIL -->
+
+        <p>
+
+            <label for="id_email">
+                Email:
+            </label>
+
+            {{ form.email }}
+
+            {% if form.email.errors %}
+
+            <span style="color: red;">
+                {{ form.email.errors }}
+            </span>
+
+            {% endif %}
+
+        </p>
+
+
+        <!-- PASSWORD -->
+
+        <p>
+
+            <label for="id_password1">
+                Password:
+            </label>
+
+            {{ form.password1 }}
+
+            {% if form.password1.errors %}
+
+            <span style="color: red;">
+                {{ form.password1.errors }}
+            </span>
+
+            {% endif %}
+
+        </p>
+
+
+        <!-- PASSWORD CONFIRMATION -->
+
+        <p>
+
+            <label for="id_password2">
+                Confirm Password:
+            </label>
+
+            {{ form.password2 }}
+
+            {% if form.password2.errors %}
+
+            <span style="color: red;">
+                {{ form.password2.errors }}
+            </span>
+
+            {% endif %}
+
+        </p>
+
 
         <button type="submit">
             Register
@@ -21,17 +125,22 @@
 
     </form>
 
+
     <br>
+
 
     <a href="{% url 'login' %}">
         Already have an account? Login
     </a>
 
+
     <br>
+
 
     <a href="{% url 'home' %}">
         Back to Home
     </a>
+
 
 </body>
 

@@ -1,10 +1,27 @@
-from django.shortcuts import render,redirect
-from django.contrib.auth import authenticate,login,logout
-from django.contrib import messages
+from django.shortcuts import render, redirect
+
+from django.contrib.auth import authenticate
+from django.contrib.auth import login
+from django.contrib.auth import logout
+
 from .forms import RegisterForm
 
+
+# ==========================================
+# HOME
+# ==========================================
+
 def home(request):
-  return render(request,'accounts/home.html')
+
+    return render(
+        request,
+        'accounts/home.html'
+    )
+
+
+# ==========================================
+# REGISTER
+# ==========================================
 
 def register_view(request):
 
@@ -14,10 +31,13 @@ def register_view(request):
 
         if form.is_valid():
 
+            # Create the User
             user = form.save()
 
+            # Login the new user
             login(request, user)
 
+            # Go to home
             return redirect('home')
 
     else:
@@ -27,16 +47,24 @@ def register_view(request):
     return render(
         request,
         'accounts/register.html',
-        {'form': form}
+        {
+            'form': form
+        }
     )
+
+
+# ==========================================
+# LOGIN
+# ==========================================
 
 def login_view(request):
 
     if request.method == 'POST':
 
-        username = request.POST['username']
-        password = request.POST['password']
+        username = request.POST.get('username')
+        password = request.POST.get('password')
 
+        # Check username and password
         user = authenticate(
             request,
             username=username,
@@ -45,15 +73,21 @@ def login_view(request):
 
         if user is not None:
 
+            # Login successful
             login(request, user)
 
             return redirect('home')
 
         else:
 
-            messages.error(
+            # Login failed
+            return render(
                 request,
-                'Invalid username or password.'
+                'accounts/login.html',
+                {
+                    'error':
+                        'Invalid username or password.'
+                }
             )
 
     return render(
@@ -61,15 +95,13 @@ def login_view(request):
         'accounts/login.html'
     )
 
+
+# ==========================================
+# LOGOUT
+# ==========================================
+
 def logout_view(request):
+
     logout(request)
 
     return redirect('home')
-     
-
-
-
-
-    
-
-
