@@ -1,4 +1,5 @@
 import uuid
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -50,6 +51,8 @@ def process_payment(request, plan_id):
 
     return render(request, 'nutrition/checkout.html', {'plan': plan})
 
+def index(request):
+    return HttpResponse("Welcome to the Nutrition Page!")
 
 # --- RECIPE VIEWS ---
 
@@ -92,3 +95,6 @@ def add_food_diary(request):
         return redirect('food_diary_list')
 
     return render(request, 'nutrition/add_food_diary.html')
+
+
+
