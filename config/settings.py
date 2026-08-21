@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'dashboard',
     'nutrition',
     'progress_blog',
+      
 ]
 
 MIDDLEWARE = [
