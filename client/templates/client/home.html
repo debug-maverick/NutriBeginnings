@@ -1,0 +1,55 @@
+{% extends 'client/base.html' %}
+
+{% block title %}Home - NutriBeginnings{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- Hero Section -->
+    <div class="row align-items-center py-5">
+        <div class="col-lg-6">
+            <h1 class="display-4 fw-bold text-success">Welcome to NutriBeginnings</h1>
+            <p class="lead">Your journey to a healthier lifestyle starts here. We provide personalized nutrition guidance to help you achieve your wellness goals.</p>
+            <a href="{% url 'client:book_consultation' %}" class="btn btn-success btn-lg mt-3">
+                <i class="fas fa-calendar-check me-2"></i>Book Your Consultation
+            </a>
+        </div>
+        <div class="col-lg-6">
+            <div class="bg-light p-5 rounded-3 text-center">
+                <i class="fas fa-heartbeat fa-5x text-success"></i>
+                <h3 class="mt-3">Healthy Living Starts Today</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="row mt-5 g-4">
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center">
+                    <i class="fas fa-user-md fa-3x text-success mb-3"></i>
+                    <h5 class="card-title">Expert Nutritionists</h5>
+                    <p class="card-text">Work with certified nutrition professionals who understand your unique needs.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center">
+                    <i class="fas fa-apple-alt fa-3x text-success mb-3"></i>
+                    <h5 class="card-title">Personalized Plans</h5>
+                    <p class="card-text">Get customized meal plans tailored to your lifestyle and health goals.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center">
+                    <i class="fas fa-chart-line fa-3x text-success mb-3"></i>
+                    <h5 class="card-title">Track Progress</h5>
+                    <p class="card-text">Monitor your health journey with our comprehensive tracking tools.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
