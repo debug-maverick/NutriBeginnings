@@ -12,10 +12,13 @@ urlpatterns = [
     
     # Contact page
     path('contact/', views.contact, name='contact'),
+    path('send-message/', views.send_message, name='send_message'),
+    path('message-success/', views.message_success, name='message_success'),
     
     # Blogs page
     path('blogs/', views.blogs, name='blogs'),
     
     # Book Consultation page
     path('book-consultation/', views.book_consultation, name='book_consultation'),
+
 ]

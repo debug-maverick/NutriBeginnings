@@ -1,44 +1,30 @@
-#from django.contrib import admin
-
-# Register your models here.
-
 from django.contrib import admin
-from .models import Client
+from .models import Message
 
-'''@admin.register(Client)
-class ClientAdmin(admin.ModelAdmin):
-    list_display = ['user', 'phone', 'date_of_birth', 'created_at']
-    search_fields = ['user__username', 'user__email', 'phone']
-    list_filter = ['created_at']
-    readonly_fields = ['created_at', 'updated_at']'''
 
-@admin.register(Client)
-class ClientAdmin(admin.ModelAdmin):
+@admin.register(Message)
+class MessageAdmin(admin.ModelAdmin):
+
     list_display = [
-        'client_id',
-        'user',
-        'phone',
-        'age',
-        'gender',
-        'height',
-        'weight',
-        'goal',
+        'message_id',
+        'client',
+        'subject',
+        'is_replied',
         'created_at'
     ]
 
     search_fields = [
-        'user__username',
-        'user__email',
-        'phone'
+        'subject',
+        'message',
+        'client__user__username'
     ]
 
     list_filter = [
-        'gender',
-        'goal',
+        'is_replied',
         'created_at'
     ]
 
     readonly_fields = [
-        'created_at',
-        'updated_at'
+        'message_id',
+        'created_at'
     ]

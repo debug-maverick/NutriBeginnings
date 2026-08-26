@@ -20,4 +20,5 @@ from django.urls import include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('client.urls')),  # This makes client the root app
+    path('authentication/', include('Authentication.urls')),
 ]
