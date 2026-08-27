@@ -26,7 +26,7 @@ def about(request):
     return render(request, 'client/about.html', context)
 
 # Contact page view
-@login_required
+#@login_required
 def contact(request):
 
     form = MessageForm()
