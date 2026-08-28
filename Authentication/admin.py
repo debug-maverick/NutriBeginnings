@@ -9,6 +9,22 @@ class ProfileAdmin(admin.ModelAdmin):
     list_display = (
         'user',
         'phone',
-        'date_of_birth',
+        'gender',
+        'current_weight',
+        'goal_weight',
+        'fitness_goal',
+        'created_at',
+    )
+
+    search_fields = (
+        'user__username',
+        'user__first_name',
+        'user__last_name',
+        'phone',
+    )
+
+    list_filter = (
+        'gender',
+        'fitness_goal',
         'created_at',
     )

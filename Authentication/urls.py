@@ -24,4 +24,11 @@ urlpatterns = [
         name='logout'
     ),
 
+    # Profile
+    path(
+        'records/',
+        views.records,
+        name='records'
+    ),
+
 ]

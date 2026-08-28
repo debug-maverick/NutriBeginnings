@@ -53,6 +53,17 @@
                             <i class="fas fa-envelope"></i> Contact
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                    {% if user.is_authenticated %}
+
+                    <a class="nav-link" href="{% url 'authentication:records' %}">
+                        <i class="fas fa-folder-open"></i>
+                        Your Records
+                    </a>
+                    </li>
+
+                    {% endif %}
                     
                     <li class="nav-item">
                         {% if user.is_authenticated %}

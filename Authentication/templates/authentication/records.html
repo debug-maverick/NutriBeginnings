@@ -1,0 +1,32 @@
+{% extends 'client/base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <h2>Your Records</h2>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <h4>Personal Information</h4>
+
+        {{ user_form.as_p }}
+
+        <h4>Health Information</h4>
+
+        {{ profile_form.as_p }}
+
+        <button
+            type="submit"
+            class="btn btn-success"
+        >
+            Save Records
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}
