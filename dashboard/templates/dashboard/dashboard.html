@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NutriBeginnings | Admin Dashboard</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'dashboard/css/dashboard.css' %}">
+</head>
+
+<body>
+
+    <div class="dashboard-wrapper">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="sidebar">
+
+            <!-- Logo -->
+            <div class="sidebar-logo">
+                <div class="logo-icon">N</div>
+
+                <div class="logo-text">
+                    <h2>NutriBeginnings</h2>
+                    <span>Admin Panel</span>
+                </div>
+
+                
+            </div>
+
+
+            <!-- Navigation -->
+            <nav class="sidebar-navigation">
+
+                <p class="menu-title">MAIN MENU</p>
+
+                <a href="#" class="sidebar-link active">
+                    <span class="sidebar-icon">▦</span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="#" class="sidebar-link">
+                    <span class="sidebar-icon">♙</span>
+                    <span>Clients</span>
+                </a>
+
+                <a href="#" class="sidebar-link">
+                    <span class="sidebar-icon">□</span>
+                    <span>Appointments</span>
+                </a>
+
+                <a href="#" class="sidebar-link">
+                    <span class="sidebar-icon">♡</span>
+                    <span>Meal Plans</span>
+                </a>
+
+                <a href="#" class="sidebar-link">
+                    <span class="sidebar-icon">◉</span>
+                    <span>Progress & Reports</span>
+                </a>
+
+                <a href="#" class="sidebar-link">
+                    <span class="sidebar-icon">□</span>
+                    <span>Messages</span>
+                </a>
+
+
+                <p class="menu-title second-menu">SYSTEM</p>
+
+                <a href="#" class="sidebar-link">
+                    <span class="sidebar-icon">⚙</span>
+                    <span>Settings</span>
+                </a>
+
+                <a href="#" class="sidebar-link logout-link">
+                    <span class="sidebar-icon">↪</span>
+                    <span>Logout</span>
+                </a>
+
+            </nav>
+
+
+            <!-- Sidebar Bottom -->
+            <div class="sidebar-footer">
+                <div class="admin-mini-profile">
+
+                    <div class="admin-avatar">
+                        A
+                    </div>
+
+                    <div class="admin-info">
+                        <strong>Admin</strong>
+                        <span>Nutritionist</span>
+                    </div>
+
+                    <span class="profile-arrow">⋮</span>
+
+                </div>
+            </div>
+
+        </aside>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <main class="main-content">
+
+            <!-- Top Header -->
+            <header class="top-header">
+
+                <div class="header-left">
+
+                <button id="sidebarToggle" class="sidebar-toggle" type="button">
+                    ☰
+                </button>
+
+                    <div>
+                        <h1>Dashboard</h1>
+                        <p>Welcome back! Here's what's happening today.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="header-right">
+
+                    <!-- Search -->
+                    <div class="search-box">
+
+                        <span class="search-icon">⌕</span>
+
+                        <input
+                            type="text"
+                            placeholder="Search..."
+                        >
+
+                        <span class="search-shortcut">
+                            Ctrl K
+                        </span>
+
+                    </div>
+
+
+                    <!-- Notification -->
+                    <button class="notification-button">
+                        ♧
+                        <span class="notification-dot"></span>
+                    </button>
+
+
+                    <!-- Profile -->
+                    <div class="header-profile">
+
+                        <div class="header-avatar">
+                            A
+                        </div>
+
+                        <div class="header-profile-info">
+                            <strong>Admin</strong>
+                            <span>Nutritionist</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- Dashboard Content -->
+        <section class="dashboard-content">
+
+            <!-- ================= STATISTICS ================= -->
+
+            <div class="stats-grid">
+
+                <!-- Total Clients -->
+                <div class="stat-card">
+                    <div class="stat-card-top">
+                        <div>
+                            <p class="stat-title">Total Clients</p>
+                            <h3>128</h3>
+                        </div>
+
+                        <div class="stat-icon clients-icon">
+                            ♙
+                        </div>
+                    </div>
+
+                    <div class="stat-bottom">
+                        <span class="stat-positive">↑ 12%</span>
+                        <span>from last month</span>
+                    </div>
+                </div>
+
+
+                <!-- Today's Appointments -->
+                <div class="stat-card">
+                    <div class="stat-card-top">
+                        <div>
+                            <p class="stat-title">Today's Appointments</p>
+                            <h3>8</h3>
+                        </div>
+
+                        <div class="stat-icon appointment-icon">
+                            □
+                        </div>
+                    </div>
+
+                    <div class="stat-bottom">
+                        <span class="stat-positive">↑ 8%</span>
+                        <span>from yesterday</span>
+                    </div>
+                </div>
+
+
+                <!-- Pending Appointments -->
+                <div class="stat-card">
+                    <div class="stat-card-top">
+                        <div>
+                            <p class="stat-title">Pending Appointments</p>
+                            <h3>5</h3>
+                        </div>
+
+                        <div class="stat-icon pending-icon">
+                            ◷
+                        </div>
+                    </div>
+
+                    <div class="stat-bottom">
+                        <span class="stat-warning">Needs attention</span>
+                    </div>
+                </div>
+
+
+                <!-- Active Meal Plans -->
+                <div class="stat-card">
+                    <div class="stat-card-top">
+                        <div>
+                            <p class="stat-title">Active Meal Plans</p>
+                            <h3>74</h3>
+                        </div>
+
+                        <div class="stat-icon meal-icon">
+                            ♡
+                        </div>
+                    </div>
+
+                    <div class="stat-bottom">
+                        <span class="stat-positive">↑ 6%</span>
+                        <span>this month</span>
+                    </div>
+                </div>
+
+
+                <!-- Unread Messages -->
+                <div class="stat-card">
+                    <div class="stat-card-top">
+                        <div>
+                            <p class="stat-title">Unread Messages</p>
+                            <h3>12</h3>
+                        </div>
+
+                        <div class="stat-icon message-icon">
+                            □
+                        </div>
+                    </div>
+
+                    <div class="stat-bottom">
+                        <span class="stat-warning">12 unread</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        </main>
+
+    </div>
+
+    <!-- Sidebar Toggle -->
+    <script>
+
+        const sidebarToggle = document.getElementById("sidebarToggle");
+
+        sidebarToggle.addEventListener("click", function () {
+
+            document.body.classList.toggle("sidebar-hidden");
+
+        });
+
+    </script>
+
+</body>
+</html>
