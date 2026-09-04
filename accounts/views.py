@@ -17,6 +17,18 @@ def home(request):
         request,
         'accounts/home.html'
     )
+def about(request):
+
+    return render(
+        request,
+        'accounts/about.html'
+    )
+def contact(request):
+
+    return render(
+        request,
+        'accounts/contact.html'
+    )
 
 
 # ==========================================
@@ -38,7 +50,7 @@ def register_view(request):
             login(request, user)
 
             # Go to home
-            return redirect('home')
+            return redirect('accounts:home')
 
     else:
 
@@ -76,7 +88,7 @@ def login_view(request):
             # Login successful
             login(request, user)
 
-            return redirect('home')
+            return redirect('accounts:home')
 
         else:
 
@@ -104,4 +116,4 @@ def logout_view(request):
 
     logout(request)
 
-    return redirect('home')
+    return redirect('accounts:home')

@@ -1,57 +1,85 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 
 <head>
+
   <title>Login</title>
+
+  <!-- Connect CSS -->
+  <link rel="stylesheet" href="{% static 'accounts/logincss.css' %}">
+
 </head>
 
 <body>
 
-  <h1>Login</h1>
+  <!-- Main Login Container -->
+  <div class="login-container">
 
-  {% if messages %}
+    <!-- Login Card -->
+    <div class="login-card">
 
-  {% for message in messages %}
+      <!-- Heading -->
+      <h1>Login</h1>
 
-  <p>{{ message }}</p>
+      <!-- Error message -->
+      {% if error %}
+      <p class="error">
+        {{ error }}
+      </p>
+      {% endif %}
 
-  {% endfor %}
 
-  {% endif %}
+      <!-- Login Form -->
+      <form method="POST">
 
-  <form method="POST">
+        {% csrf_token %}
 
-    {% csrf_token %}
+        <!-- Username -->
+        <div class="form-group">
 
-    <label>Username:</label>
+          <label>Username:</label>
 
-    <input type="text" name="username" required>
+          <input type="text" name="username" required>
 
-    <br><br>
+        </div>
 
-    <label>Password:</label>
 
-    <input type="password" name="password" required>
+        <!-- Password -->
+        <div class="form-group">
 
-    <br><br>
+          <label>Password:</label>
 
-    <button type="submit">
-      Login
-    </button>
+          <input type="password" name="password" required>
 
-  </form>
+        </div>
 
-  <br>
 
-  <a href="{% url 'register' %}">
-    Create an account
-  </a>
+        <!-- Login Button -->
+        <button type="submit">
+          Login
+        </button>
 
-  <br>
+      </form>
 
-  <a href="{% url 'home' %}">
-    Back to Home
-  </a>
+
+      <!-- Links -->
+      <div class="login-links">
+
+        <a href="{% url 'accounts:register' %}">
+          Create an account
+        </a>
+
+        <a href="{% url 'accounts:home' %}">
+          Back to Home
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </body>
 
