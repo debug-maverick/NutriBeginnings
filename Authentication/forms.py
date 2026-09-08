@@ -38,7 +38,6 @@ class ProfileForm(forms.ModelForm):
             'gender',
             'height',
             'current_weight',
-            'goal_weight',
             'fitness_goal',
             'allergies'
         ]

@@ -12,13 +12,6 @@ class Profile(models.Model):
         ('Other', 'Other'),
     ]
 
-    GOAL_CHOICES = [
-        ('Weight Loss', 'Weight Loss'),
-        ('Weight Gain', 'Weight Gain'),
-        ('Maintain Weight', 'Maintain Weight'),
-        ('Muscle Gain', 'Muscle Gain'),
-    ]
-
     # Connect Profile to Django's built-in User
     user = models.OneToOneField(
         User,
@@ -62,15 +55,8 @@ class Profile(models.Model):
         help_text="Current weight in kg"
     )
 
-    goal_weight = models.FloatField(
-        blank=True,
-        null=True,
-        help_text="Goal weight in kg"
-    )
-
-    fitness_goal = models.CharField(
-        max_length=50,
-        choices=GOAL_CHOICES,
+    fitness_goal = models.TextField(
+        
         blank=True,
         null=True
     )
@@ -114,7 +100,6 @@ class Profile(models.Model):
             self.gender,
             self.height,
             self.current_weight,
-            self.goal_weight,
             self.fitness_goal,
         ]
 

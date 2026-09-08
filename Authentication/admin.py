@@ -11,7 +11,6 @@ class ProfileAdmin(admin.ModelAdmin):
         'phone',
         'gender',
         'current_weight',
-        'goal_weight',
         'fitness_goal',
         'created_at',
     )
