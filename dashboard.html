@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}Dashboard | NutriTrack{% endblock %}
+{% block content %}
+<section class="hero">
+    <div>
+        <p class="eyebrow">HEALTH & WELLNESS</p>
+        <h1>Track your progress.<br><span>Build better habits.</span></h1>
+        <p class="subtext">Keep your nutrition and daily activity in one simple dashboard.</p>
+        <a class="primary-btn" href="{% url 'progress_create' %}">Add Today's Progress</a>
+    </div>
+    <div class="hero-card">
+        <div class="pulse">●</div>
+        <strong>Small steps</strong>
+        <span>lead to big changes.</span>
+    </div>
+</section>
+
+<div class="stats">
+    <div class="stat"><span>Total Entries</span><b>{{ progress_count }}</b></div>
+    <div class="stat"><span>Average Weight</span><b>{% if avg_weight %}{{ avg_weight|floatformat:1 }} kg{% else %}—{% endif %}</b></div>
+    <div class="stat"><span>Blog Articles</span><b>{{ blog_count }}</b></div>
+    <div class="stat"><span>Latest Weight</span><b>{% if latest %}{{ latest.weight }} kg{% else %}—{% endif %}</b></div>
+</div>
+
+<div class="grid-2">
+    <section class="panel">
+        <div class="panel-head"><div><p class="eyebrow">ANALYTICS</p><h2>Weight Progress</h2></div></div>
+        <canvas id="weightChart" height="140"></canvas>
+    </section>
+    <section class="panel">
+        <div class="panel-head"><div><p class="eyebrow">CALORIES</p><h2>Daily Intake</h2></div></div>
+        <canvas id="calorieChart" height="140"></canvas>
+    </section>
+</div>
+
+<div class="grid-2 lower">
+    <section class="panel">
+        <div class="panel-head"><h2>Recent Progress</h2><a href="{% url 'progress_list' %}">View all →</a></div>
+        {% for item in recent_progress %}
+        <div class="row-item">
+            <div><b>{{ item.date|date:"d M Y" }}</b><small>{{ item.steps }} steps • {{ item.water }} L water</small></div>
+            <strong>{{ item.weight }} kg</strong>
+        </div>
+        {% empty %}
+        <p class="empty">No progress entries yet. Add your first one.</p>
+        {% endfor %}
+    </section>
+
+    <section class="panel">
+        <div class="panel-head"><h2>Latest Blogs</h2><a href="{% url 'blog_list' %}">View all →</a></div>
+        {% for post in blogs %}
+        <a class="blog-mini" href="{% url 'blog_detail' post.pk %}">
+            <b>{{ post.title }}</b><small>{{ post.created_at|date:"d M Y" }}</small>
+        </a>
+        {% empty %}
+        <p class="empty">No blog posts yet.</p>
+        {% endfor %}
+    </section>
+</div>
+
+<script>
+const labels = {{ chart_labels|safe }};
+new Chart(document.getElementById("weightChart"), {
+    type: "line",
+    data: { labels, datasets: [{ label: "Weight (kg)", data: {{ chart_weights|safe }}, tension: .35, fill: true }] },
+    options: { responsive: true, plugins: { legend: { display: false } } }
+});
+new Chart(document.getElementById("calorieChart"), {
+    type: "bar",
+    data: { labels, datasets: [{ label: "Calories", data: {{ chart_calories|safe }} }] },
+    options: { responsive: true, plugins: { legend: { display: false } } }
+});
+</script>
+{% endblock %}

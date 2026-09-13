@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}Delete Progress | NutriTrack{% endblock %}
+{% block content %}
+<div class="form-card small"><h1>Delete entry?</h1><p>Are you sure you want to delete the progress from <b>{{ item.date }}</b>?</p>
+<form method="post">{% csrf_token %}<button class="danger-btn">Yes, Delete</button> <a class="secondary-btn" href="{% url 'progress_list' %}">Cancel</a></form></div>
+{% endblock %}

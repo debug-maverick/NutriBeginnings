@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}{{ title }} | NutriTrack{% endblock %}
+{% block content %}
+<div class="form-card">
+    <p class="eyebrow">PROGRESS TRACKING</p><h1>{{ title }}</h1>
+    <form method="post">{% csrf_token %}
+        {% for field in form %}
+        <label>{{ field.label }} {{ field }}</label>
+        {% if field.errors %}<div class="errors">{{ field.errors }}</div>{% endif %}
+        {% endfor %}
+        <div class="form-actions"><a class="secondary-btn" href="{% url 'progress_list' %}">Cancel</a><button class="primary-btn">Save Progress</button></div>
+    </form>
+</div>
+{% endblock %}

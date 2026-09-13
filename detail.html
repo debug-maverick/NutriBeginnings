@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }} | NutriTrack{% endblock %}
+{% block content %}
+<article class="article">
+<p class="eyebrow">{{ post.created_at|date:"d M Y" }} • BY {{ post.author|upper }}</p>
+<h1>{{ post.title }}</h1>
+{% if post.excerpt %}<p class="lead">{{ post.excerpt }}</p>{% endif %}
+<div class="article-content">{{ post.content|linebreaks }}</div>
+<div class="article-actions"><a href="{% url 'blog_update' post.pk %}">Edit</a><a class="danger" href="{% url 'blog_delete' post.pk %}">Delete</a><a href="{% url 'blog_list' %}">Back to Blogs</a></div>
+</article>
+{% endblock %}
